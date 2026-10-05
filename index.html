@@ -28,7 +28,10 @@ body.clean .page :is(input,textarea){background:transparent!important}body.clean
 .site-footer a.cafecito-link{padding:0;border:0;background:transparent}
 .site-footer a.cafecito-link:hover{background:transparent;border-color:transparent}
 .site-footer .cafecito-link img{display:block;width:180px;max-width:100%;height:auto}
-.hero,.role-grid{width:min(100%,1040px);margin:0 auto}.hero{margin-bottom:30px}.eyebrow{color:#1d4ed8;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+.hero,.role-grid,#teacherWizard,.doc-frame,.family-note{width:min(100%,1040px);margin-left:auto;margin-right:auto}
+.doc-frame{display:block;border:0;border-radius:12px;background:#fff;box-shadow:0 4px 16px #0f172a0b;height:clamp(420px,75vh,760px);margin-top:28px;margin-bottom:20px}
+.family-note{margin-top:0;margin-bottom:10px;color:#475569;font-size:.9rem;line-height:1.5}
+.hero,.role-grid{margin:0 auto}.hero{margin-bottom:30px}.eyebrow{color:#1d4ed8;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
 .hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;max-width:780px;margin:.6rem 0 1rem}.hero p{font-size:1.1rem;line-height:1.55;max-width:700px;color:#475569}
 .role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.role-card{display:flex;flex-direction:column;align-items:flex-start;padding:22px;border:1px solid #dbe3ee;border-radius:16px;background:#fff;box-shadow:0 4px 16px #0f172a0b;min-height:265px}
 .role-card .icon{font-size:2rem}.role-card h2{font-size:1.25rem;margin:14px 0 8px}.role-card p{color:#475569;line-height:1.5;margin:0 0 18px;flex:1}.role-card button,.next-child{border:0;border-radius:9px;background:#1d4ed8;color:white;font-weight:700;padding:12px 16px;font-size:1rem;cursor:pointer;min-height:46px}.family-note{width:min(100%,1040px);margin:18px auto 0;padding:14px 16px;background:#e0f2fe;border-radius:10px;color:#164e63;line-height:1.5}
@@ -42,7 +45,30 @@ body.clean .page :is(input,textarea){background:transparent!important}body.clean
 .page{height:297mm;aspect-ratio:auto;box-shadow:none;page-break-after:always;break-after:page}
 .page :is(input,textarea){background:transparent!important}}
 </style></head><body>
-<main class="landing" id="home"><section class="hero"><div class="eyebrow">Resolución 4533/18 · C.G.E.</div><h1>¿Qué necesitás completar?</h1><p>Elegí tu rol y te llevamos directo a las planillas que corresponden a tu tarea.</p></section><section class="role-grid" id="roleGrid" aria-label="Elegir tipo de usuario"><article class="role-card"><div class="icon" aria-hidden="true">👨‍👩‍👧</div><h2>Familia</h2><p>Autorización y ficha de salud individual del alumno o la alumna. Se completa desde el celular y se guarda un PDF por cada hijo/a.</p><button onclick="enter('family')">Completar datos de mi hijo/a</button></article><article class="role-card"><div class="icon" aria-hidden="true">🧑‍🏫</div><h2>Docente responsable</h2><p>Elegí el tipo de actividad para ver quién autoriza, con cuánta anticipación y qué anexos presentar.</p><button onclick="showTeacherWizard()">Organizar una salida</button></article><article class="role-card"><div class="icon" aria-hidden="true">🏫</div><h2>Directivo o supervisor</h2><p>Accedé al conjunto de planillas para revisar la documentación de la salida y sus anexos.</p><button onclick="enter('review')">Revisar documentación</button></article></section><section id="teacherWizard" hidden><button class="role-card" style="min-height:46px;display:inline-flex;padding:10px 16px" onclick="goHome()">← Volver a los roles</button><h2>¿Qué tipo de actividad vas a organizar?</h2><p>La guía de la resolución distingue estos casos. Elegí el que más se parece a tu salida.</p><div class="role-grid" id="activityGrid"></div></section><p class="family-note" id="familyNote"><strong>¿Tenés más de un hijo/a?</strong> Completá y guardá el PDF de cada uno por separado. Después elegí “Otro hijo/a” para empezar un formulario limpio.</p><p class="family-note">La guía de autorizaciones y plazos se basa en la tabla de ejemplos de la página 15 de la Resolución 4533/18.</p><p class="family-note"><strong>Privacidad:</strong> las respuestas quedan guardadas en este navegador y no se envían al colegio. Si compartís el dispositivo, descargá el PDF y después usá “Borrar todo”.</p><footer class="site-footer"><span>Autor: Walter Cuesta</span><nav aria-label="Enlaces del autor"><a href="https://github.com/wox9000" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/waltercuesta/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a class="cafecito-link" href="https://cafecito.app/waldev9000" target="_blank" rel="noopener noreferrer"><img srcset="https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x" src="https://cdn.cafecito.app/imgs/buttons/button_6.png" alt="Invitame un café en cafecito.app"></a></nav></footer></main>
+<main class="landing" id="home"><section class="hero">
+<div class="eyebrow">Resolución 4533/18 · C.G.E.</div>
+<h1>¿Qué necesitás completar?</h1>
+<p>Elegí tu rol y te llevamos directo a las planillas que corresponden a tu tarea.</p>
+</section><section class="role-grid" id="roleGrid" aria-label="Elegir tipo de usuario">
+<article class="role-card">
+<div class="icon" aria-hidden="true">👨‍👩‍👧</div>
+<h2>Familia</h2><p>Autorización y ficha de salud individual del alumno o la alumna. Se completa desde el celular y se guarda un PDF por cada hijo/a.</p>
+<button onclick="enter('family')">Completar datos de mi hijo/a</button></article><article class="role-card"><div class="icon" aria-hidden="true">🧑‍🏫</div><h2>Docente responsable</h2><p>Elegí el tipo de actividad para ver quién autoriza, con cuánta anticipación y qué anexos presentar.</p><button onclick="showTeacherWizard()">Organizar una salida</button></article><article class="role-card"><div class="icon" aria-hidden="true">🏫</div><h2>Directivo o supervisor</h2><p>Accedé al conjunto de planillas para revisar la documentación de la salida y sus anexos.</p><button onclick="enter('review')">Revisar documentación</button></article></section><section id="teacherWizard" hidden><button class="role-card" style="min-height:46px;display:inline-flex;padding:10px 16px" onclick="goHome()">← Volver a los roles</button>
+<h2>¿Qué tipo de actividad vas a organizar?</h2>
+<p>La guía de la resolución distingue estos casos. Elegí el que más se parece a tu salida.</p>
+<div class="role-grid" id="activityGrid"></div></section>
+<iframe
+  class="doc-frame"
+  src="https://drive.google.com/file/d/1ExbqYUxqUJam0fbjYBC6JsymUAlr7YJ5/preview"
+  allow="autoplay"
+  loading="lazy"
+  title="Documento de Google Drive">
+</iframe>
+<p class="family-note" id="familyNote"><strong>¿Tenés más de un hijo/a?</strong> Completá y guardá el PDF de cada uno por separado. Después elegí “Otro hijo/a” para empezar un formulario limpio.</p>
+<p class="family-note">La guía de autorizaciones y plazos se basa en la tabla de ejemplos de la página 15 de la Resolución 4533/18.</p>
+<p class="family-note"><strong>Privacidad:</strong> las respuestas quedan guardadas en este navegador y no se envían al colegio. Si compartís el dispositivo, descargá el PDF y después usá “Borrar todo”.</p>
+
+<footer class="site-footer"><span>Autor: Walter Cuesta</span><nav aria-label="Enlaces del autor"><a href="https://github.com/wox9000" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/waltercuesta/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a class="cafecito-link" href="https://cafecito.app/waldev9000" target="_blank" rel="noopener noreferrer"><img srcset="https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x" src="https://cdn.cafecito.app/imgs/buttons/button_6.png" alt="Invitame un café en cafecito.app"></a></nav></footer></main>
 <div class="bar" id="bar"><b>Res. 4533/18 CGE</b><button id="back" onclick="goHome()">← Inicio</button><button id="nextChild" class="next-child" onclick="newChild()" hidden>Otro hijo/a</button>
 <select id="jump"></select>
 <button id="zo">−</button><button id="zi">＋</button>
